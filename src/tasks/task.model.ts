@@ -1,9 +1,6 @@
-export enum TaskStatus {
-    OPEN = 'OPEN',
-    IN_PROGRESS = 'IN_PROGRESS',
-    DONE = 'DONE',
-}
+import { TaskStatus } from './task-status.enum';
 
+// Used when using in memory array arra
 export interface Task {
     id: string;
     title: string;

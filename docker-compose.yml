@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+    postgres_nest:
+        image: postgres
+        container_name: postgres_nest
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: secret
+        ports:
+            - 5432:5432
+        networks:
+            - nest-task-management-net
+
+    pgadmin_nest:
+        image: dpage/pgadmin4
+        container_name: pgadmin_nest
+        environment:
+            PGADMIN_DEFAULT_EMAIL: wijaksanapanji6@gmail.com
+            PGADMIN_DEFAULT_PASSWORD: secret
+        depends_on:
+            - postgres_nest
+        ports:
+            - 8080:80
+        networks:
+            - nest-task-management-net
+
+networks:
+    nest-task-management-net:
